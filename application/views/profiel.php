@@ -60,58 +60,166 @@
                 </div>
               </div>
               <div class="col-span-12 xl:col-span-8">
-                <div class="grid grid-cols-12 gap-5">
-                  <div class="col-span-12 xl:col-span-6">
-                    <input type="hidden" class="input w-full border bg-gray-100 mt-2" value="<?= $level ?>" name="level">
-                    <input type="hidden" class="input w-full border bg-gray-100 mt-2" value="<?= $profiel['id_user'] ?>" name="id_user">
+                <?php if ($level === 'Admin') : ?>
+                  <div class="grid grid-cols-12 gap-5">
+                    <div class="col-span-12 xl:col-span-6">
+                      <input type="hidden" class="input w-full border bg-gray-100 mt-2" value="<?= $level ?>" name="level">
+                      <input type="hidden" class="input w-full border bg-gray-100 mt-2" value="<?= $profiel['id_user'] ?>" name="id_user">
 
-                    <input type="hidden" class="input w-full border bg-gray-100 mt-2" value="<?= $profiel['foto'] ?>" name="foto">
-                    <div>
-                      <label>Email</label>
-                      <input type="text" class="input w-full border bg-gray-100 mt-2" value="<?= $profiel['email'] ?>" name="email">
-                    </div>
-                    <div class="mt-3">
-                      <label>Nama</label>
-                      <input type="text" class="input w-full border mt-2" value="<?= $profiel['nama'] ?>" name="nama">
-                    </div>
-                    <div class="mt-3">
-                      <label>No Induk</label>
-                      <input type="text" class="input w-full border mt-2" value="<?= $profiel['no_induk'] ?>" name="no_induk">
-                    </div>
-                    <div class="mt-3">
-                      <label>Jenis Kelamin</label>
-                      <select class="input w-full border mt-2" name="jk">
-                        <?php if ($profiel['jk'] == 'laki-laki') : ?>
-                          <option value="laki-laki" <?= 'selected' ?> >Laki-Laki</option>
-                          <option value="perempuan">Perempuan</option>
-                        <?php else : ?>
-                          <option value="laki-laki">Laki-Laki</option>
-                          <option value="perempuan" <?= 'selected' ?>>Perempuan</option>
-                        <?php endif; ?>
-                      </select>
-                    </div>
+                      <input type="hidden" class="input w-full border bg-gray-100 mt-2" value="<?= $profiel['foto'] ?>" name="foto">
+                      <div>
+                        <label>Email</label>
+                        <input type="text" class="input w-full border bg-gray-100 mt-2" value="<?= $profiel['email'] ?>" name="email">
+                      </div>
+                      <div class="mt-3">
+                        <label>Nama</label>
+                        <input type="text" class="input w-full border mt-2" value="<?= $profiel['nama'] ?>" name="nama">
+                      </div>
+                      <div class="mt-3">
+                        <label>Nip</label>
+                        <input type="text" class="input w-full border mt-2" value="<?= $profiel['nip'] ?>" name="nip">
+                      </div>
+                      <div class="mt-3">
+                        <label>Jenis Kelamin</label>
+                        <select class="input w-full border mt-2" name="jk">
+                          <?php if ($profiel['jk'] == 'laki-laki') : ?>
+                            <option value="laki-laki" <?= 'selected' ?>>Laki-Laki</option>
+                            <option value="perempuan">Perempuan</option>
+                          <?php else : ?>
+                            <option value="laki-laki">Laki-Laki</option>
+                            <option value="perempuan" <?= 'selected' ?>>Perempuan</option>
+                          <?php endif; ?>
+                        </select>
+                      </div>
 
+                    </div>
+                    <div class="col-span-12 xl:col-span-6">
+                      <div>
+                        <label>Tempat Lahir</label>
+                        <input type="text" class="input w-full border mt-2" value="<?= $profiel['tempat_lahir'] ?>" name="tempat_lahir">
+                      </div>
+                      <div class="mt-3">
+                        <label>Tanggal Lahir</label>
+                        <input type="date" class="input w-full border mt-2" value="<?= $profiel['tanggal_lahir'] ?>" name="tanggal_lahir">
+                      </div>
+                      <div class="mt-3">
+                        <label>Telepon</label>
+                        <input type="text" class="input w-full border mt-2" value="<?= $profiel['telepon'] ?>" name="telepon">
+                      </div>
+                      <div class="mt-3">
+                        <label>Alamat</label>
+                        <input type="text" class="input w-full border mt-2" value="<?= $profiel['alamat'] ?>" name="alamat">
+                      </div>
+                    </div>
+                    <button type="submit" class="button w-50 bg-theme-1 text-white ml-auto ">Simpan</button>
                   </div>
-                  <div class="col-span-12 xl:col-span-6">
-                    <div>
-                      <label>Tempat Lahir</label>
-                      <input type="text" class="input w-full border mt-2" value="<?= $profiel['tempat_lahir'] ?>" name="tempat_lahir">
+                <?php elseif ($level == 'guru') : ?>
+                  <div class="grid grid-cols-12 gap-5">
+                    <div class="col-span-12 xl:col-span-6">
+                      <input type="hidden" class="input w-full border bg-gray-100 mt-2" value="<?= $level ?>" name="level">
+                      <input type="hidden" class="input w-full border bg-gray-100 mt-2" value="<?= $profiel['id_user'] ?>" name="id_user">
+
+                      <input type="hidden" class="input w-full border bg-gray-100 mt-2" value="<?= $profiel['foto'] ?>" name="foto">
+                      <div>
+                        <label>Email</label>
+                        <input type="text" class="input w-full border bg-gray-100 mt-2" value="<?= $profiel['email'] ?>" name="email">
+                      </div>
+                      <div class="mt-3">
+                        <label>Nama</label>
+                        <input type="text" class="input w-full border mt-2" value="<?= $profiel['nama'] ?>" name="nama">
+                      </div>
+                      <div class="mt-3">
+                        <label>Nip</label>
+                        <input type="text" class="input w-full border mt-2" value="<?= $profiel['nip'] ?>" name="nip">
+                      </div>
+                      <div class="mt-3">
+                        <label>Jenis Kelamin</label>
+                        <select class="input w-full border mt-2" name="jk">
+                          <?php if ($profiel['jk'] == 'laki-laki') : ?>
+                            <option value="laki-laki" <?= 'selected' ?>>Laki-Laki</option>
+                            <option value="perempuan">Perempuan</option>
+                          <?php else : ?>
+                            <option value="laki-laki">Laki-Laki</option>
+                            <option value="perempuan" <?= 'selected' ?>>Perempuan</option>
+                          <?php endif; ?>
+                        </select>
+                      </div>
+
                     </div>
-                    <div class="mt-3">
-                      <label>Tanggal Lahir</label>
-                      <input type="date" class="input w-full border mt-2" value="<?= $profiel['tanggal_lahir'] ?>" name="tanggal_lahir">
+                    <div class="col-span-12 xl:col-span-6">
+                      <div>
+                        <label>Tempat Lahir</label>
+                        <input type="text" class="input w-full border mt-2" value="<?= $profiel['tempat_lahir'] ?>" name="tempat_lahir">
+                      </div>
+                      <div class="mt-3">
+                        <label>Tanggal Lahir</label>
+                        <input type="date" class="input w-full border mt-2" value="<?= $profiel['tanggal_lahir'] ?>" name="tanggal_lahir">
+                      </div>
+                      <div class="mt-3">
+                        <label>Telepon</label>
+                        <input type="text" class="input w-full border mt-2" value="<?= $profiel['telepon'] ?>" name="telepon">
+                      </div>
+                      <div class="mt-3">
+                        <label>Alamat</label>
+                        <input type="text" class="input w-full border mt-2" value="<?= $profiel['alamat'] ?>" name="alamat">
+                      </div>
                     </div>
-                    <div class="mt-3">
-                      <label>Telepon</label>
-                      <input type="text" class="input w-full border mt-2" value="<?= $profiel['telepon'] ?>" name="telepon">
-                    </div>
-                    <div class="mt-3">
-                      <label>Alamat</label>
-                      <input type="text" class="input w-full border mt-2" value="<?= $profiel['alamat'] ?>" name="alamat">
-                    </div>
+                    <button type="submit" class="button w-50 bg-theme-1 text-white ml-auto ">Simpan</button>
                   </div>
-                  <button type="submit" class="button w-50 bg-theme-1 text-white ml-auto ">Simpan</button>
-                </div>
+                <?php else : ?>
+                  <div class="grid grid-cols-12 gap-5">
+                    <div class="col-span-12 xl:col-span-6">
+                      <input type="hidden" class="input w-full border bg-gray-100 mt-2" value="<?= $level ?>" name="level">
+                      <input type="hidden" class="input w-full border bg-gray-100 mt-2" value="<?= $profiel['id_user'] ?>" name="id_user">
+
+                      <input type="hidden" class="input w-full border bg-gray-100 mt-2" value="<?= $profiel['foto'] ?>" name="foto">
+                      <div>
+                        <label>Email</label>
+                        <input type="text" class="input w-full border bg-gray-100 mt-2" value="<?= $profiel['email'] ?>" name="email">
+                      </div>
+                      <div class="mt-3">
+                        <label>Nama</label>
+                        <input type="text" class="input w-full border mt-2" value="<?= $profiel['nama'] ?>" name="nama">
+                      </div>
+                      <div class="mt-3">
+                        <label>Nis</label>
+                        <input type="text" class="input w-full border mt-2" value="<?= $profiel['nis'] ?>" name="nis">
+                      </div>
+                      <div class="mt-3">
+                        <label>Jenis Kelamin</label>
+                        <select class="input w-full border mt-2" name="jk">
+                          <?php if ($profiel['jk'] == 'laki-laki') : ?>
+                            <option value="laki-laki" <?= 'selected' ?>>Laki-Laki</option>
+                            <option value="perempuan">Perempuan</option>
+                          <?php else : ?>
+                            <option value="laki-laki">Laki-Laki</option>
+                            <option value="perempuan" <?= 'selected' ?>>Perempuan</option>
+                          <?php endif; ?>
+                        </select>
+                      </div>
+
+                    </div>
+                    <div class="col-span-12 xl:col-span-6">
+                      <div>
+                        <label>Tempat Lahir</label>
+                        <input type="text" class="input w-full border mt-2" value="<?= $profiel['tempat_lahir'] ?>" name="tempat_lahir">
+                      </div>
+                      <div class="mt-3">
+                        <label>Tanggal Lahir</label>
+                        <input type="date" class="input w-full border mt-2" value="<?= $profiel['tanggal_lahir'] ?>" name="tanggal_lahir">
+                      </div>
+                      <div class="mt-3">
+                        <label>Telepon</label>
+                        <input type="text" class="input w-full border mt-2" value="<?= $profiel['telepon'] ?>" name="telepon">
+                      </div>
+                      <div class="mt-3">
+                        <label>Alamat</label>
+                        <input type="text" class="input w-full border mt-2" value="<?= $profiel['alamat'] ?>" name="alamat">
+                      </div>
+                    </div>
+                    <button type="submit" class="button w-50 bg-theme-1 text-white ml-auto ">Simpan</button>
+                  </div>
+                <?php endif; ?>
               </div>
             </div>
           </div>

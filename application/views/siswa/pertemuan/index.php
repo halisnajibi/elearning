@@ -16,7 +16,7 @@
             <div class="report-box zoom-in ">
               <div class="box p-5 mt-2">
                 <a href="<?= base_url('siswa/detailPertemuan/'.$row['id_pertemuan']) ?>" class="text-2xl font-bold leading-8  hover:text-blue-700"><?= $row['judul_pertemuan'] ?></a>
-                <?php if($row['status_absen'] == 'Ya'){ ?>
+                <?php if($row['absen'] == 'Ya'){ ?>
                 <a  href="<?= base_url('siswa/pertemuanAbsen/'.$row['id_pertemuan']) ?>" class="button w-20 bg-theme-1 text-white rounded-md float-right">Absen</a>
                 <?php } ?>
               </div>

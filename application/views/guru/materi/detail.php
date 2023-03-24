@@ -1,4 +1,6 @@
-  <?= $this->session->flashdata('pesan'); ?>
+
+ 
+ <?= $this->session->flashdata('pesan'); ?>
 <div class="content">
    <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
                     <h2 class="text-lg font-medium mr-auto">
@@ -63,8 +65,9 @@
       <h2 class="font-medium text-base mr-auto">Form Edit Materi</h2>
     </div>
     <form action="<?= base_url('guru/updateMateri') ?>" method="post"  enctype="multipart/form-data">
-    <input type="text" name="id_pertemuan"  value="<?= $materi['id_pertemuan'] ?>">
-        <input type="text" name="file_lama"  value="<?= $materi['file'] ?>">
+
+    <input type="hidden" name="id_pertemuan"  value="<?= $materi['id_pertemuan'] ?>">
+        <input type="hidden" name="file_lama"  value="<?= $materi['file'] ?>">
           <input type="text" name="id_ruangan"  value="<?= $materi['id_ruangan'] ?>">
       <input type="hidden" name="id_guru" value="<?= $profiel['id_guru'] ?>">
         <input type="hidden" name="id_materi" value="<?= $materi['id_pertemuan'] ?>">
@@ -78,7 +81,7 @@
        <label>File <?= form_error('file',  '<span class="sm:ml-auto mt-1 sm:mt-0 text-xs text-red-600">', '</span') ?> </label> <input type="file" class="input w-full border mt-2 flex-1" placeholder="file materi" name="file"">
    </div>
    <div class="col-span-12 mb-3">
-    <?php if($materi['status_absen'] == 'Ya') :?>
+    <?php if($materi['absen'] == 'Ya') :?>
     <div class="mt-3"> <label>Status Absen</label>
      <div class="flex flex-col sm:flex-row mt-2">
          <div class="flex items-center text-gray-700 mr-2"> <input type="radio" class="input border mr-2" id="horizontal-radio-chris-evans" checked name="absen" value="Ya"  onclick="displayResult(this.value)" > <label class="cursor-pointer select-none" for="horizontal-radio-chris-evans">Ya</label> </div>
@@ -93,7 +96,7 @@
      </div>
     </div>
      <?php endif; ?>
-     <?php if($materi['status_absen'] == 'Ya'): ?>
+     <?php if($materi['absen'] == 'Ya'): ?>
     <div class="hilang mt-3" id="setting-absen">
       <label>Tanggal Absen</label> <input type="date" class="input w-full border mt-2 flex-1" placeholder="tanggal_absen" name="tanggal_absen" value="<?= $statusAbsen['tanggal'] ?>" >
       <label>Jam Mulai</label> <input type="time" class="input w-full border mt-2 flex-1" placeholder="tanggal_absen" value="<?= $statusAbsen['jam_mulai'] ?>" name="jm">

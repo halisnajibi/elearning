@@ -50,7 +50,7 @@
        </div>
       </td>
       <td class="text-center border-b"><?= $row['nama'] ?></td>
-      <td class="text-center border-b"><?= $row['no_induk'] ?></td>
+      <td class="text-center border-b"><?= $row['nis'] ?></td>
       <td class="text-center border-b"><?= $row['jk'] ?></td>
       <td class="text-center border-b"><?= $row['tempat_lahir'] . ' ' . $row['tanggal_lahir'] ?></td>
       <td class="text-center border-b"><?= $row['email'] ?></td>
@@ -106,7 +106,7 @@
     <input type="hidden" name="id_siswa" value="<?= $row['id_siswa'] ?>">
     <div class="p-5 grid grid-cols-12 gap-4 row-gap-3">
      <div class="col-span-12 sm:col-span-6"> <label>Nama <?= form_error('nama',  '<span class="sm:ml-auto mt-1 sm:mt-0 text-xs text-red-600">', '</span') ?> </label> <input type="text" class="input w-full border mt-2 flex-1" placeholder="nama" name="nama" value="<?= $row['nama'] ?>"> </div>
-     <div class="col-span-12 sm:col-span-6"> <label>Nis</label> <input type="text" class="input w-full border mt-2 flex-1" placeholder="nis" name="nis" value="<?= $row['no_induk'] ?>"> </div>
+     <div class="col-span-12 sm:col-span-6"> <label>Nis</label> <input type="text" class="input w-full border mt-2 flex-1" placeholder="nis" name="nis" value="<?= $row['nis'] ?>"> </div>
      <div class=" col-span-12 sm:col-span-6"> <label>Email</label> <input type="text" class="input w-full border mt-2 flex-1" placeholder="email" name="email" value="<?= $row['email'] ?>"> </div>
      <div class=" col-span-12 sm:col-span-6"> <label>Jenis Kelamin</label> <select class="input w-full border mt-2 flex-1" name="jk">
        <?php if ($row['jk'] == 'laki-laki') : ?>

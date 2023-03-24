@@ -25,7 +25,7 @@
            
           <div class="px-5 py-3 text-right border-t border-gray-200"> <button type="submit" class="button w-20 bg-theme-1 text-white -ml-5">Simpan</button> </div>
       </form>
-       <div class="px-5 py-3 text-right border-t border-gray-200"> <a href="javascript:;" data-toggle="modal" data-target="#delete-ruangan" class="flex w-32 h-10 rounded-md justify-center items-center bg-theme-6 text-white -ml-5">Hapus Ruangan</a> </div>
+       <div class="px-5 py-3 text-right border-t border-gray-200"> <a href="javascript:;" data-toggle="modal" data-target="#delete-ruangan" class="flex w-32 h-10 rounded-md justify-center items-center bg-theme-6 text-white -ml-5">Hapus Tugas</a> </div>
       </div>
  </div>
 

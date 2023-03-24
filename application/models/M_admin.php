@@ -25,7 +25,7 @@ class M_admin extends CI_Model
    $rowUser = $this->db->get_where('tbl_user', ['username' => $nip])->row_array();
    $id_user = $rowUser['id_user'];
    $data = [
-    'no_induk' => $nip,
+    'nip' => $nip,
     'nama' => $this->input->post('nama', true),
     'jk' => $this->input->post('jk', true),
     'email' => $this->input->post('email', true),
@@ -51,7 +51,7 @@ class M_admin extends CI_Model
    $rowUser = $this->db->get_where('tbl_user', ['username' => $nis])->row_array();
    $id_user = $rowUser['id_user'];
    $data = [
-    'no_induk' => $nis,
+    'nis' => $nis,
     'nama' => $this->input->post('nama', true),
     'jk' => $this->input->post('jk', true),
     'email' => $this->input->post('email', true),
@@ -87,7 +87,7 @@ class M_admin extends CI_Model
   if ($table == 'tbl_guru') {
    $id = $this->input->post('id_guru');
    $data = [
-    'no_induk' => $this->input->post('nip', true),
+    'nip' => $this->input->post('nip', true),
     'nama' => $this->input->post('nama', true),
     'jk' => $this->input->post('jk', true),
     'tanggal_lahir' => $this->input->post('tanggal_lahir', true),
@@ -101,7 +101,7 @@ class M_admin extends CI_Model
   } else if ($table == 'tbl_siswa') {
    $id = $this->input->post('id_siswa');
    $data = [
-    'no_induk' => $this->input->post('nis', true),
+    'nis' => $this->input->post('nis', true),
     'nama' => $this->input->post('nama', true),
     'jk' => $this->input->post('jk', true),
     'tanggal_lahir' => $this->input->post('tanggal_lahir', true),

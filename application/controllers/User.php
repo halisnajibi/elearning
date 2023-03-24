@@ -40,16 +40,17 @@ class User extends CI_Controller
 
    public function updateProfiel()
    {
-     $this->__uAdmin();
-   $this->__uGuru();
-     $this->__uSiswa();
+      $this->__uAdmin();
+      $this->__uGuru();
+      $this->__uSiswa();
    }
 
-   private function __uAdmin(){
-       $level = $this->input->post('level');
+   private function __uAdmin()
+   {
+      $level = $this->input->post('level');
       if ($level === 'Admin') {
          $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
-         $this->form_validation->set_rules('no_induk', 'Nis/Nip', 'required|trim');
+         $this->form_validation->set_rules('nip', 'Nip', 'required|trim');
          if ($this->form_validation->run() == false) {
             $session_user = $this->session->userdata('id_user');
             $session_level = $this->session->userdata('level');
@@ -110,8 +111,9 @@ class User extends CI_Controller
       }
    }
 
-    private function __uGuru(){
-       $level = $this->input->post('level');
+   private function __uGuru()
+   {
+      $level = $this->input->post('level');
       if ($level === 'Guru') {
          $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
          $this->form_validation->set_rules('no_induk', 'Nis/Nip', 'required|trim');
@@ -175,8 +177,9 @@ class User extends CI_Controller
       }
    }
 
-    private function __uSiswa(){
-       $level = $this->input->post('level');
+   private function __uSiswa()
+   {
+      $level = $this->input->post('level');
       if ($level === 'Siswa') {
          $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
          $this->form_validation->set_rules('no_induk', 'Nis/Nip', 'required|trim');
@@ -272,12 +275,13 @@ class User extends CI_Controller
 
    public function updatePassword()
    {
-    $this->__passwordAdminU();
-    $this->__passwordGuruU();
+      $this->__passwordAdminU();
+      $this->__passwordGuruU();
    }
 
-   private function __passwordAdminU(){
-        $level = $this->input->post('level');
+   private function __passwordAdminU()
+   {
+      $level = $this->input->post('level');
       if ($level == 'Admin') {
          $this->form_validation->set_rules('pl', 'Password Lama', 'required|trim');
          $this->form_validation->set_rules('pb', 'Password Baru', 'required|trim|min_length[5]|matches[kp]');
@@ -326,8 +330,9 @@ class User extends CI_Controller
       }
    }
 
-    private function __passwordGuruU(){
-        $level = $this->input->post('level');
+   private function __passwordGuruU()
+   {
+      $level = $this->input->post('level');
       if ($level == 'Guru') {
          $this->form_validation->set_rules('pl', 'Password Lama', 'required|trim');
          $this->form_validation->set_rules('pb', 'Password Baru', 'required|trim|min_length[5]|matches[kp]');
@@ -389,18 +394,18 @@ class User extends CI_Controller
       $this->load->view('template/footer',);
    }
 
-   
-  public function download($status,$namaFile)
-  {
-    if($status === 'materi'){
-     $this->load->helper('download');
-  force_download("public/materi/$namaFile", NULL);
-  }else if($status === 'tugas'){
- $this->load->helper('download');
-  force_download("public/tugas/$namaFile", NULL);
-  }else{
-   $this->load->helper('download');
-   force_download("public/tugas_siswa/$namaFile", NULL);
-  }
-  }
+
+   public function download($status, $namaFile)
+   {
+      if ($status === 'materi') {
+         $this->load->helper('download');
+         force_download("public/materi/$namaFile", NULL);
+      } else if ($status === 'tugas') {
+         $this->load->helper('download');
+         force_download("public/tugas/$namaFile", NULL);
+      } else {
+         $this->load->helper('download');
+         force_download("public/tugas_siswa/$namaFile", NULL);
+      }
+   }
 }

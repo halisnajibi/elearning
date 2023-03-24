@@ -142,7 +142,7 @@ public function cariMateri($key)
 'materi' => $this->input->post('materi',true),
 'file' => $file,
 'status' => 'terkirim',
-'status_absen' => $absen
+'absen' => $absen
    ];
    $this->db->insert('tbl_pertemuan',$data);
    if($absen == 'Ya'){
@@ -157,7 +157,7 @@ public function cariMateri($key)
 'materi' => $this->input->post('materi',true),
 'file' => 'tidak ada',
 'status' => 'terkirim',
-'status_absen' => $absen
+'absen' => $absen
    ];
    $this->db->insert('tbl_pertemuan',$data);
   if($absen == 'Ya'){
@@ -198,7 +198,7 @@ public function cariMateri($key)
       }else{
          //insert
          $this->db->where('id_pertemuan',$id);
-         $this->db->update('tbl_pertemuan',['status_absen' => $this->input->post('absen')]);
+         $this->db->update('tbl_pertemuan',['absen' => $this->input->post('absen')]);
          $absen = [
             'id_pertemuan' => $id,
             'id_ruangan' => $this->input->post('id_ruangan'),
@@ -214,7 +214,7 @@ public function cariMateri($key)
          // hapus
          $this->db->delete('tbl_buku_absen',['id_pertemuan' => $id]);
          $this->db->where('id_pertemuan',$id);
-         $this->db->update('tbl_pertemuan',['status_absen' => $this->input->post('absen')]);
+         $this->db->update('tbl_pertemuan',['absen' => $this->input->post('absen')]);
       }else{
          //ga terj
       }
@@ -247,7 +247,7 @@ public function cariMateri($key)
       }else{
          //insert
          $this->db->where('id_pertemuan',$id);
-         $this->db->update('tbl_pertemuan',['status_absen' => $this->input->post('absen')]);
+         $this->db->update('tbl_pertemuan',['absen' => $this->input->post('absen')]);
          $absen = [
             'id_pertemuan' => $id,
             'id_ruangan' => $this->input->post('id_ruangan'),
@@ -264,7 +264,7 @@ public function cariMateri($key)
          // hapus
          $this->db->delete('tbl_buku_absen',['id_pertemuan' => $id]);
          $this->db->where('id_pertemuan',$id);
-         $this->db->update('tbl_pertemuan',['status_absen' => $this->input->post('absen')]);
+         $this->db->update('tbl_pertemuan',['absen' => $this->input->post('absen')]);
       }else{
          //ga terj
       }
@@ -280,6 +280,11 @@ public function cariMateri($key)
 
 
 
+
+public function getBukuAbsen($idPertemuan)
+{
+   return $this->db->get_where('tbl_buku_absen',['id_pertemuan' => $idPertemuan])->row_array();
+}
 
 public function getAbsen($id)
 {
@@ -353,7 +358,6 @@ public function setTugas($file = null)
       'waktu_akhir' => $this->input->post('waktu_akhir',true),
        'keterangan' => $this->input->post('keterangan'),
        'file' => $file,
-       'status' => 1
       ];
       $this->db->insert('tbl_buku_tugas',$data);
    }else{
@@ -365,7 +369,6 @@ public function setTugas($file = null)
       'waktu_akhir' => $this->input->post('waktu_akhir',true),
        'keterangan' => $this->input->post('keterangan'),
        'file' => 'tidak ada',
-       'status' => 1
       ];
       $this->db->insert('tbl_buku_tugas',$data);
    }
@@ -390,7 +393,6 @@ public function deleteTugas($id)
       'waktu_akhir' => $this->input->post('waktu_akhir',true),
 'keterangan' => $this->input->post('keterangan',true),
 'file' => $file,
-'status' => 1,
    ];
    $this->db->where('id_tugas',$id);
    $this->db->update('tbl_buku_tugas',$data);
@@ -403,7 +405,6 @@ public function deleteTugas($id)
       'waktu_akhir' => $this->input->post('waktu_akhir',true),
 'keterangan' => $this->input->post('keterangan',true),
 'file' => $this->input->post('file_lama',true),
-'status' => 1,
    ];
    $this->db->where('id_tugas',$id);
    $this->db->update('tbl_buku_tugas',$data);

@@ -796,7 +796,7 @@
 
     </li>
      <li>
-     <a href="<?= base_url('siswa/tugas') ?>" class="top-menu <?php if ($this->uri->segment(2) === 'tugas' ||$this->uri->segment(2) === 'kerjakanTugas'|$this->uri->segment(2) === 'riwayatTugas' ) {
+     <a href="<?= base_url('siswa/tugas') ?>" class="top-menu <?php if ($this->uri->segment(2) === 'tugas' || $this->uri->segment(2) === 'kerjakanTugas'|$this->uri->segment(2) === 'riwayatTugas' || $this->uri->segment(2) === 'tugasDetail'  ) {
                                              echo 'top-menu--active';
                                             } ?>">
       <div class="top-menu__icon"> <i data-feather="clipboard"></i> </div>

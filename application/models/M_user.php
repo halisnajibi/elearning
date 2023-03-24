@@ -44,7 +44,7 @@ class M_user extends CI_Model
   if ($level === 'Admin') {
    if ($file != null) {
     $data = [
-     'no_induk' => $this->input->post('no_induk', true),
+     'nip' => $this->input->post('nip', true),
      'nama' => $this->input->post('nama', true),
      'jk' => $this->input->post('jk', true),
      'tanggal_lahir' => $this->input->post('tanggal_lahir', true),
@@ -58,7 +58,7 @@ class M_user extends CI_Model
     $this->db->update('tbl_admin', $data);
    } else {
     $data = [
-     'no_induk' => $this->input->post('no_induk', true),
+     'nip' => $this->input->post('nip', true),
      'nama' => $this->input->post('nama', true),
      'jk' => $this->input->post('jk', true),
      'tanggal_lahir' => $this->input->post('tanggal_lahir', true),
@@ -75,7 +75,7 @@ class M_user extends CI_Model
   }elseif($level === 'Guru'){
    if ($file != null) {
     $data = [
-     'no_induk' => $this->input->post('no_induk', true),
+     'nip' => $this->input->post('nip', true),
      'nama' => $this->input->post('nama', true),
      'jk' => $this->input->post('jk', true),
      'tanggal_lahir' => $this->input->post('tanggal_lahir', true),
@@ -89,7 +89,7 @@ class M_user extends CI_Model
     $this->db->update('tbl_guru', $data);
    } else {
     $data = [
-     'no_induk' => $this->input->post('no_induk', true),
+     'nip' => $this->input->post('nip', true),
      'nama' => $this->input->post('nama', true),
      'jk' => $this->input->post('jk', true),
      'tanggal_lahir' => $this->input->post('tanggal_lahir', true),
@@ -106,7 +106,7 @@ class M_user extends CI_Model
   }else{
    if ($file != null) {
     $data = [
-          'no_induk' => $this->input->post('no_induk', true),'nama' => $this->input->post('nama', true),
+          'nis' => $this->input->post('nis', true),'nama' => $this->input->post('nama', true),
      'jk' => $this->input->post('jk'),
      'tanggal_lahir' => $this->input->post('tanggal_lahir', true),
      'tempat_lahir' => $this->input->post('tempat_lahir', true),
@@ -119,7 +119,7 @@ class M_user extends CI_Model
     $this->db->update('tbl_siswa', $data);
    } else {
     $data = [
-     'no_induk' => $this->input->post('no_induk', true),
+     'nis' => $this->input->post('nis', true),
      'nama' => $this->input->post('nama', true),
      'jk' => $this->input->post('jk'),
      'tanggal_lahir' => $this->input->post('tanggal_lahir', true),
