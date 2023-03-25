@@ -3,6 +3,7 @@
   <h2 class="text-lg font-medium mr-auto">
    Data User Guru
   </h2>
+
  </div>
  <?= $this->session->flashdata('login'); ?>
  <?= $this->session->flashdata('pesan'); ?>

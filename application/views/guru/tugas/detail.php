@@ -32,6 +32,7 @@
  <!-- BEGIN: Datatable -->
  <div class="intro-y datatable-wrapper box p-5 mt-5">
   <h6 class="text-md font-medium text-theme-1">Data Siswa Mengerjakan</h6>
+  <div class="text-right mb-3"> <a href="<?= base_url('guru/cetakTugas/').$this->uri->segment(3) ?>" class="button text-white bg-theme-9 shadow-md mr-2 mt-10" target="_blank">Cetak Data</a> </div>
   <table class="table table-report table-report--bordered display datatable w-full">
    <thead>
     <tr>
@@ -119,7 +120,6 @@
         type: "POST",
         data: {keywoard: $(this).val()},
         success:function(data){
-          console.log(data);
           var html ='';
           for(var i=0; i < data.length;i++){
             html +='<div class="report-box zoom-in mb-3" >';

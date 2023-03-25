@@ -4,7 +4,7 @@
    Data Absen Siswa 
   </h2>
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-   <div class="text-center"> <a href="javascript:;" data-toggle="modal" data-target="#tambah" class="button text-white bg-theme-1 shadow-md mr-2 mt-10">Cetak</a> </div>
+   <div class="text-center"> <a href="<?= base_url('guru/cetakAbsen/').$this->uri->segment(3) ?>" class="button text-white bg-theme-9 shadow-md mr-2 mt-10" target="_blank">Cetak Data</a> </div>
   </div>
  </div>
  
@@ -41,9 +41,9 @@
      <td class="border-b">
        <div class="font-medium whitespace-no-wrap"><?= $row['nama'] ?></div>
       </td>
-      <td class="text-center border-b"><?= $row['no_induk'] ?></td>
+      <td class="text-center border-b"><?= $row['nis'] ?></td>
       <td class="text-center border-b"><?= $row['status'] ?></td>
-        <td class="text-center border-b"><?= $row['waktu_absen'] ?></td>
+        <td class="text-center border-b"><?= $row['jam_absen'] ?></td>
           <td class="text-center border-b"><?= $row['keterangan'] ?></td>
          <td> <a href="javascript:;" data-toggle="modal" data-target="#edit<?= $row['id_siswa'] ?>" class="flex items-center sm:justify-center text-theme-1"> <i data-feather="edit" class="w-4 h-4 mr-2"></i>Edit</a></td>
      </tr>

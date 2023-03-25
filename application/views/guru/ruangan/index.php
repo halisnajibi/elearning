@@ -12,6 +12,7 @@
             <p class="font-medium text-lg mr-3">jumlah ruangan <?= $jumlah ?></p>
           <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
             <div class="text-center"> <a href="javascript:;" data-toggle="modal" data-target="#tambahruangan" class="button text-white bg-theme-1 shadow-md mr-2 mt-10">Tambah Ruangan</a> </div>
+            <div class="text-center"> <a href="<?= base_url('guru/cetakRuangan') ?>" class="button text-white bg-theme-9 shadow-md mr-2 mt-10" target="_blank">Cetak Data</a> </div>
           </div>
           <div class="search hidden sm:block mt-1">
             <form action="<?= base_url('guru/ruangan') ?>" method="post">

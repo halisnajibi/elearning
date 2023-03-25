@@ -108,6 +108,17 @@ public function hapusRuangan($id)
   return $query;
  }
 
+ public function getMateriCetak($idRuangan,$idGuru)
+ {
+ $this->db->select('*');
+  $this->db->from('tbl_ruangan');
+  $this->db->join('tbl_pertemuan', 'tbl_pertemuan.id_ruangan = tbl_ruangan.id_ruangan');
+  $this->db->where('tbl_pertemuan.id_guru', $idGuru);
+  $this->db->where('tbl_pertemuan.id_ruangan', $idRuangan);
+  $query = $this->db->get()->result_array();
+  return $query;
+ }
+
 public function getMateriRow($idGuru,$id)
  {
  $this->db->select('*');
@@ -293,6 +304,16 @@ public function getAbsen($id)
   $this->db->join('tbl_absen_siswa', 'tbl_absen_siswa.id_siswa = tbl_siswa.id_siswa');
   $this->db->where('tbl_absen_siswa.id_buku_absen', $id);
   $query = $this->db->get()->result_array();
+  return $query;
+}
+
+public function getJudulAbsen($id)
+{
+ $this->db->select('*');
+  $this->db->from('tbl_buku_absen');
+  $this->db->join('tbl_pertemuan', 'tbl_buku_absen.id_pertemuan = tbl_pertemuan.id_pertemuan');
+  $this->db->where('tbl_buku_absen.id_buku_absen', $id);
+  $query = $this->db->get()->row_array();
   return $query;
 }
 

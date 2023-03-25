@@ -96,8 +96,9 @@
         type: "POST",
         data: {keywoard: $(this).val()},
         success:function(data){
-          console.log(data);
+          console.log(data)
           var html ='';
+          html += '<div class=""> <a href="cetakMateri/'+data[0].id_ruangan+'" class="button text-white bg-theme-9 shadow-md mr-2 mt-10" target="_blank">Cetak Data</a> </div>'
           for(var i=0; i < data.length;i++){
             var href ='+<?=base_url('guru/materiDetail/')?>+';
             html +='<div class="report-box zoom-in mb-3" >';

@@ -5,6 +5,7 @@
   </h2>
   <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
    <div class="text-center"> <a href="javascript:;" data-toggle="modal" data-target="#header-footer-modal-preview" class="button text-white bg-theme-1 shadow-md mr-2 mt-10">Tambah Data</a> </div>
+   <div class="text-center"> <a href="<?= base_url('admin/cetakSiswa') ?>" class="button text-white bg-theme-9 shadow-md mr-2 mt-10">Cetak Data</a></div>
    <div class="dropdown relative ml-auto sm:ml-0">
     <button class="dropdown-toggle button px-2 box text-gray-700">
      <span class="w-5 h-5 flex items-center justify-center"> <i class="w-4 h-4" data-feather="plus"></i> </span>

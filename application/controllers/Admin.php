@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+require FCPATH.'vendor/autoload.php';
 class Admin extends CI_Controller
 {
   public function __construct()
@@ -222,4 +222,42 @@ class Admin extends CI_Controller
       redirect('admin/master/mapel');
     }
   }
+
+
+//cetak
+public function cetakGuru()
+{
+  $data = [
+    'cetakGuru' =>  $this->M_user->getUser('tbl_guru', 'guru')
+  ];
+  $html = $this->load->view('admin/guru/cetak',$data,true);
+  $mpdf = new \Mpdf\Mpdf();
+$mpdf->WriteHTML($html);
+$mpdf->Output();
+}
+
+public function cetakSiswa()
+{
+  $data = [
+    'cetakSiswa' => $this->M_admin->getMaster('tbl_siswa')
+  ];
+  $html = $this->load->view('admin/siswa/cetak',$data,true);
+  $mpdf = new \Mpdf\Mpdf();
+$mpdf->WriteHTML($html);
+$mpdf->Output();
+}
+
+public function cetakMapel()
+{
+  $data = [
+    'cetakmapel' =>  $this->M_admin->getMaster('tbl_mapel')
+  ];
+  $html = $this->load->view('admin/mapel/cetak',$data,true);
+  $mpdf = new \Mpdf\Mpdf();
+$mpdf->WriteHTML($html);
+$mpdf->Output();
+}
+
+
+
 }

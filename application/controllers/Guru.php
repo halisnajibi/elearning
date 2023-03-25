@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+require FCPATH.'vendor/autoload.php';
 class Guru extends CI_Controller
 {
 
@@ -433,5 +433,59 @@ redirect('guru/ruangan');
          redirect('guru/tugasDetail/'.$idTugas);
       }
     }
+  }
+
+
+  //cetak
+  public function cetakRuangan()
+  {
+    $session_user = $this->session->userdata('id_user');
+    $session_level = $this->session->userdata('level');
+    $profiel =  $this->M_user->getProfiel('tbl_guru', $session_user);
+    $data = [
+      'cetakRuangan' =>  $this->M_guru->getRuangan($profiel['id_guru'])
+    ];
+    $html = $this->load->view('guru/ruangan/cetak',$data,true);
+    $mpdf = new \Mpdf\Mpdf();
+  $mpdf->WriteHTML($html);
+  $mpdf->Output();
+  }
+
+  public function cetakMateri($idRuangan)
+  {
+    $session_user = $this->session->userdata('id_user');
+    $session_level = $this->session->userdata('level');
+    $profiel =  $this->M_user->getProfiel('tbl_guru', $session_user);
+    $data = [
+      'cetakMateri' => $this->M_guru->getMateriCetak($idRuangan,$profiel['id_guru'])
+    ];
+    $html = $this->load->view('guru/materi/cetak',$data,true);
+    $mpdf = new \Mpdf\Mpdf();
+  $mpdf->WriteHTML($html);
+  $mpdf->Output();
+  }
+
+  public function cetakAbsen($idBA)
+  {
+    $data = [
+      'judulAbsen' => $this->M_guru->getJudulAbsen($idBA),
+      'cetakAbsen' => $this->M_guru->getAbsen($idBA)
+    ];
+    $html = $this->load->view('guru/absen/cetak',$data,true);
+    $mpdf = new \Mpdf\Mpdf();
+  $mpdf->WriteHTML($html);
+  $mpdf->Output();
+  }
+
+  public function cetakTugas($idBT)
+  {
+    $data = [
+      'judulTugas' => $this->M_guru->getTugas($idBT),
+      'cetakTugas' => $this->M_guru->getTugasRow($idBT)
+    ];
+    $html = $this->load->view('guru/tugas/cetak',$data,true);
+    $mpdf = new \Mpdf\Mpdf();
+  $mpdf->WriteHTML($html);
+  $mpdf->Output();
   }
 }
